@@ -1,0 +1,25 @@
+<div *ngIf="products.length > 0; else noProducts">
+    <mat-card *ngFor="let product of products" class="product-card">
+      <img mat-card-image [src]="product.image" alt="{{ product.title }}" />
+      <mat-card-content>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price | currency }}</p>
+        <p>Quantity: 
+          <button mat-raised-button color="primary" (click)="decreaseQuantity(product)">-</button>
+          {{ product.quantity }}
+          <button mat-raised-button color="primary" (click)="increaseQuantity(product)">+</button>
+        </p>
+        <p>Total: {{ product.price * product.quantity | currency }}</p>
+      </mat-card-content>
+      <button mat-raised-button color="warn" (click)="removeProduct(product)">Remove</button>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <h3>Total Amount: {{ getTotalAmount() | currency }}</h3>
+    <button mat-raised-button color="primary" (click)="onProceedPayment()">Proceed to Payment</button>
+  </div>
+  
+  <ng-template #noProducts>
+    <p>{{ errorMessage }}</p>
+  </ng-template>
+  

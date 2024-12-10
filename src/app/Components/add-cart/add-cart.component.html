@@ -1,0 +1,41 @@
+<div class="cart-container">
+    <div class="back-button-container">
+      <button mat-button (click)="goHome()" class="back-button">Back to Home</button>
+    </div>
+    <h2>Your Cart</h2>
+  
+    <div *ngIf="products.length === 0">
+      <mat-card class="empty-cart">
+        <mat-card-content>
+          <p>Your cart is empty.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <div *ngIf="products.length > 0">
+      <mat-card class="product-card" *ngFor="let item of products">
+        <mat-card-header>
+          <mat-card-title>{{ item.product.title }}</mat-card-title>
+          <mat-card-subtitle>{{ item.product.description }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="product-details">
+            <img mat-card-image [src]="item.product.image" alt="Product Image" *ngIf="item.product.image" />
+            <div class="product-info">
+              <p><strong>Price:</strong> {{ item.product.price | currency }}</p>
+              <div class="quantity-controls">
+                <button mat-button (click)="decreaseQuantity(item.product)">-</button>
+                <span>{{ item.quantity }}</span>
+                <button mat-button (click)="increaseQuantity(item.product)">+</button>
+              </div>
+              <button mat-button class="warn" (click)="deleteItem(item.product)">Remove</button>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+      </mat-card>
+  
+      <button mat-raised-button (click)="proceedToBilling()">Proceed to Payment</button>
+    </div>
+  </div>
+  

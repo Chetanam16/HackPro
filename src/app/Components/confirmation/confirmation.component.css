@@ -1,0 +1,122 @@
+/* General Styling for the product cards */
+.product-card {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; 
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 25%;
+    border-radius: 4px;
+    max-height: 200px; 
+    object-fit: cover; 
+  }
+  
+  /* Title and description inside mat-card */
+  .product-card h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ensure title fits without overflowing */
+  }
+  
+  .product-card p {
+    color: #666;
+    margin: 8px 0;
+    font-size: 0.9rem; /* Smaller font for description */
+  }
+  
+  /* Price and quantity styling */
+  .product-card p span {
+    font-weight: bold;
+  }
+  
+  /* Buttons for quantity adjustment */
+  button.mat-raised-button {
+    margin: 0 5px; /* Reduced margin between buttons */
+    font-size: 1rem; /* Smaller font size */
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+  
+  /* Styling for the 'Remove' button */
+  button.mat-raised-button[color="warn"] {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  
+  /* Divider styling */
+  mat-divider {
+    margin: 20px 0;
+  }
+  
+  /* Total amount and proceed button styling */
+  h3 {
+    text-align: right;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  mat-card-content {
+    padding-bottom: 20px;
+  }
+  
+  /* Styling for 'Proceed to Payment' button */
+  button.mat-raised-button[color="primary"] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  button.mat-raised-button[color="primary"]:hover {
+    background-color: #303f9f;
+  }
+  
+  /* Error message styling when no products are available */
+  p {
+    color: #d32f2f;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .product-card {
+      margin: 10px 0;
+      max-width: 90%; /* Adjust width for smaller screens */
+    }
+  
+    h2 {
+      font-size: 1.1rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+    }
+  
+    button.mat-raised-button {
+      font-size: 1rem;
+    }
+  
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+  
